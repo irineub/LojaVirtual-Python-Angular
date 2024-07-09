@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: Irineu09
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - teste-ibbi-network
+
+  backend:
+    build:
+      context: ./Teste-IBBI-Backend
+      dockerfile: Dockerfile
+    container_name: teste-api-ibbi
+    environment:
+      SQLALCHEMY_DATABASE_URL: postgresql://postgres:Irineu09@postgres/postgres
+    ports:
+      - "80:80"
+    depends_on:
+      - postgres
+    networks:
+      - teste-ibbi-network
+
+volumes:
+  pgdata:
+
+networks:
+  teste-ibbi-network:

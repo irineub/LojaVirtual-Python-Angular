@@ -1,0 +1,43 @@
+<div class="login-container">
+  <div class="login">
+    <div class="form-head">
+      <div class="form-top">
+        <div>
+          <img src="{{ logoSrc }}" alt="" width="45" />
+          <p>Desafio Tecnico</p>
+        </div>
+      </div>
+
+      <div class="form-title">
+        <h3 class="roboto-bold">Cadastro</h3>
+        <p class="roboto-medium">Cadastre-se para continuar</p>
+      </div>
+    </div>
+    <div class="form-footer">
+      <form (ngSubmit)="onRegister()">
+      <div>
+        <input
+          type="text"
+          placeholder="Nome de Usuario"
+          id="username"
+          [(ngModel)]="username"
+          name="username"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Senha"
+          id="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+      <span>
+        <a routerLink="/login">Ja sou Cadastrado</a>
+        <button type="submit">Cadastrar</button>
+      </span>
+    </form>
+    </div>
+  </div>
+</div>

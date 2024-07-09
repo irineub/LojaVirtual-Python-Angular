@@ -1,0 +1,40 @@
+<div class="pageContainer">
+    <form (ngSubmit)="criarProduto()" #productForm="ngForm">
+        <div class="formProduto">
+            <span (click)="voltar()" class="voltar">Voltar</span>
+            <div class="left">
+                <label for="productName">Nome do Produto:</label>
+                <input type="text" id="productName" name="productName"  [(ngModel)]="produto.productName" required>
+    
+                <label for="productImageUrl">URL da Imagem </label>
+                <input type="text" id="productImageUrl" name="productImageUrl" [(ngModel)]="produto.productImageUrl" required (input)="updatePreview()">
+    
+                <label for="productPrice">Preço:</label>
+                <input type="number" id="productPrice" name="productPrice" step="0.01" [(ngModel)]="produto.productPrice" required>
+    
+                <label for="productDesc">Descrição:</label>
+                <textarea id="productDesc" name="productDesc" rows="4" [(ngModel)]="produto.productDesc" required></textarea>
+    
+                <label for="productCategory">Categoria</label>
+                <div class="categorias">
+                    <select  id="productCategory" name="productCategory" [(ngModel)]="produto.productCategory" required>
+                        <option *ngFor="let categoria of categoriasLista"  [value]="categoria.categoryName">{{ categoria.categoryName }} </option> 
+                    </select>
+                    <span routerLink="novaCategoria" class="material-icons">add_box</span>
+                </div>
+    
+                <label for="productAmount">Quantidade</label>
+                <input type="number" placeholder="Qtd em estoque" id="productAmount" min="1" name="productAmount" [(ngModel)]="produto.productAmount" required>
+    
+                <label for="productAmountSuggestion">Quantidade Sugerida:</label>
+                <input placeholder="Estoque Ideal" type="number" id="productAmountSuggestion" min="1" name="productAmountSuggestion" [(ngModel)]="produto.productAmountSuggestion">
+    
+                <button type="submit">Enviar</button>
+            </div>
+            <div class="right">
+                <p>Pré-visualização da imagem</p>
+                <img [src]="produto.productImageUrl || defaultImageUrl" alt="Pré-visualização da Imagem">
+            </div>
+        </div>
+    </form>
+</div>

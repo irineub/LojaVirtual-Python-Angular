@@ -1,0 +1,48 @@
+.PageContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+
+}
+.title{
+    font-size: 1.5rem;
+    text-align: center;
+    margin-left: 50%;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+}
+
+.FormContainer{
+    margin-left: 50%;
+    width: 100vh;
+    border-radius: 16px;
+    height: 65vh;
+    overflow: auto;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+
+}
+button{
+    color: var(--primary-color);
+    cursor: pointer;
+    border-radius: 20px;
+    opacity: 0.6;
+    transition: 0.4s all;
+    &:hover{
+        opacity: 1;
+    }
+}
+button + button {
+    margin-left: 1rem;
+    color: red;
+}
+
+td{
+    font-size: 1.4rem;
+    font-weight: 500;
+}

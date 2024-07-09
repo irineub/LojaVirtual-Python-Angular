@@ -1,0 +1,41 @@
+<div class="pageContainer">
+  <div class="formProduto">
+    <span (click)="voltar()" class="voltar">Voltar</span>
+
+    <form (ngSubmit)="criarCategoria()" #productForm="ngForm">
+      <span>Adicionar Categoria</span>
+      <div class="left">
+        <label for="categoryName">Nome da Categoria:</label>
+        <input
+          type="text"
+          id="categoryName"
+          name="categoryName"
+          [(ngModel)]="categoria.categoryName"
+          required
+        />
+
+        <label for="categoryDesc">Descrição:</label>
+        <textarea
+          id="categoryDesc"
+          name="categoryDesc"
+          rows="4"
+          [(ngModel)]="categoria.categoryDesc"
+          required
+        ></textarea>
+        <button type="submit">Criar</button>
+      </div>
+    </form>
+    <div class="right">
+      <div class="CategoriasLista" *ngFor="let categoria of categoriasLista">
+        <div class="categoria">
+          <div>
+            <p>{{ categoria.categoryName }}</p>
+          </div>
+          <div>
+            <button class="material-icons" (click)="apagarCategoria(categoria.categoryId)"> delete </button>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>

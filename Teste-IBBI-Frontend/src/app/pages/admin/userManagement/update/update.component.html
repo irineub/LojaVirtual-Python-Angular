@@ -1,0 +1,30 @@
+<div class="updateContainer">
+  <div class="updateForm">
+    <p>Editar dados do Usuario <button class="voltar" (click)="voltar()">voltar</button> </p>
+      <h4>Nome de Usuario:</h4>
+      <input
+        type="text"
+        placeholder="Username"
+        [(ngModel)]="user.username"
+        required
+      />
+      <div class="selectContainer">
+        <h6>Cargo:</h6>
+        <select
+          title="Cargos"  
+          id="role"
+          name="role"
+          [(ngModel)]="user.role"
+          required
+         
+        >
+          <option *ngFor="let cargo of cargosLista" >
+            {{ cargo }}
+          </option>
+        </select>
+  
+      </div>
+      <button class="enviar" (click)="atualizar()">Enviar</button>
+  </div>
+</div>
+  

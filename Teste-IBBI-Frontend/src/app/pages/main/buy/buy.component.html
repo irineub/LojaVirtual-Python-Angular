@@ -1,0 +1,68 @@
+<div class="card-container">
+  <button (click)="voltar()">voltar</button>
+  <mat-card class="mat-card">
+    <h6>Você está prestes a comprar este produto:</h6>
+    <mat-card-header>
+      <mat-card-title class="card-title">{{
+        produtoAtual.productName
+      }}</mat-card-title>
+      <mat-card-subtitle class="card-price">{{
+        formatPrice(produtoAtual.productPrice)
+      }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-footer>
+      <div>
+        <p>Quantidade Desejada:</p>
+        <input
+          title="Quantidade"
+          [(ngModel)]="produtoVendido.soldAmount"
+          type="number"
+          min="1"
+          max="{{ produtoAtual.productAmount }}"
+        />
+      </div>
+      <button (click)="comprarProduto()" class="comprar">Comprar</button>
+    </mat-card-footer>
+  </mat-card>
+
+  <mat-card class="mat-card">
+    <mat-card-header>
+      <div class="image-container">
+        <img mat-card-image src="{{ produtoAtual.productImageUrl }}" alt="" />
+      </div>
+    </mat-card-header>
+    <mat-card-footer>
+      <mat-card-title class="card-title">{{
+        produtoAtual.productName
+      }}</mat-card-title>
+      <div class="card-desc">
+        <p class="roboto-light">{{ produtoAtual.productDesc }}</p>
+      </div>
+      <mat-card-subtitle
+        [ngClass]="{
+          'estoque-baixo':
+            produtoAtual.productAmount < produtoAtual.productAmountSuggestion,
+          'estoque-aviso':
+            produtoAtual.productAmountSuggestion - produtoAtual.productAmount <=
+            5,
+          'estoque-ok':
+            produtoAtual.productAmount >=
+            produtoAtual.productAmountSuggestion + 6
+        }"
+        class="card-estoque roboto-light"
+      >
+        Em Estoque: {{ produtoAtual.productAmount }}
+      </mat-card-subtitle>
+
+      <p
+        *ngIf="
+          produtoAtual.productAmount < produtoAtual.productAmountSuggestion
+        "
+        class="estoque-baixo-texto"
+      >
+        Estoque baixo
+      </p>
+    </mat-card-footer>
+    <mat-card-actions class="actions"> </mat-card-actions>
+  </mat-card>
+</div>

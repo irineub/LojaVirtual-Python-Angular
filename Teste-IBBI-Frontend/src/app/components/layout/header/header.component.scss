@@ -1,0 +1,99 @@
+.header-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-width: 100vh;
+    justify-content: space-between;
+    height: 5rem;
+    background: rgb(19,122,167);
+    background: linear-gradient(270deg, rgba(19,122,167,0.9556435122877276) 19%, rgba(117,178,74,0.8351953330160189) 100%);
+	box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)
+
+}
+.logo{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    color:var(--white);
+    font-size: 1.5rem;
+    padding: 2rem;
+    & h1{
+        margin-top: 20px;
+        font-weight: 1000;
+        font-size: 3rem;
+        
+    }
+    & .logoImg{
+        overflow: hidden;
+        max-height:4rem;
+        max-width: 5.8rem;
+        border-radius: 40px;
+        justify-self: center;
+        margin-bottom: 0.5rem;
+        & img{
+            width: 5rem
+            
+        }
+    }
+}
+.menu-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--white);
+}
+.user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    font-size: 2rem;
+    gap: 1rem;
+    color: var(--white);
+    margin-right: 2rem;
+    & button{
+        color: var(--white);
+    }
+ 
+}
+
+
+  @media screen and (max-width: 800px) {
+    .logo {
+        padding: 0.5rem;
+
+        & h1{
+            font-size: 2rem;
+            white-space: nowrap;
+        }
+        & .logoImg{
+            margin: 0;
+        }
+    }
+
+}
+  @media screen and (max-width: 600px) {
+    .header-container{
+        justify-content: space-around;
+        min-width: 400px;
+
+       
+    }
+    .logo {
+        padding: 0.5rem;
+
+        & h1{
+            display: none;
+        }
+        & .logoImg{
+            margin: 0;
+        }
+    }
+
+}

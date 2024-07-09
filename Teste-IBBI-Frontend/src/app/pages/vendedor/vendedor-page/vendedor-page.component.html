@@ -1,0 +1,91 @@
+<div class="PageContainer">
+    <span class="title">Meus Produtos</span>
+    <div class="FormContainer">
+      <div class="formTop">
+        <mat-form-field>
+          <mat-label>Pesquisar</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Preço,Nome...etc" #input>
+        </mat-form-field>
+          <button routerLink="criarProduto">Adicionar Produto</button>
+      </div>
+      
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      
+        <ng-container matColumnDef="productId">
+          <th mat-header-cell *matHeaderCellDef>  </th>
+          <td mat-cell *matCellDef="let element"> 
+            <div class="productImage">
+                <img src={{element.productImageUrl}} alt="">
+            </div> 
+
+          </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="productName">
+          <th mat-header-cell *matHeaderCellDef>
+                Nome
+             </th>
+          <td mat-cell *matCellDef="let element">
+            {{element.productName}}
+         </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="productPrice">
+          <th mat-header-cell *matHeaderCellDef> Preço </th>
+          <td mat-cell *matCellDef="let element"> {{element.productPrice}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="productCategory">
+          <th mat-header-cell *matHeaderCellDef> Categoria </th>
+          <td mat-cell *matCellDef="let element"> {{element.productCategory}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="productAmount" 
+   
+        >
+          <th mat-header-cell *matHeaderCellDef> Quantidade em Estoque </th>
+          <td mat-cell *matCellDef="let element">
+            <span
+            [ngClass]="{
+              'estoque-baixo':
+                element.productAmount < element.productAmountSuggestion,
+              'estoque-aviso':
+              element.productAmountSuggestion - element.productAmount <=
+                5,
+              'estoque-ok':
+              element.productAmount >=
+              element.productAmountSuggestion + 6
+            }"
+            class="card-estoque roboto-light"
+            >
+
+              {{element.productAmount}}
+            </span>
+             </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="productAmountSuggestion">
+          <th mat-header-cell *matHeaderCellDef> Quantidade Sugerida </th>
+          <td mat-cell *matCellDef="let element"> {{element.productAmountSuggestion}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Ações </th>
+          <td mat-cell *matCellDef="let element"> 
+            <span class="material-icons">edit</span>
+            <button (click)="apagarProduto(element.productId)" class="material-icons">delete</button>
+        </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+        <!-- Linha exibida quando não há dados correspondentes ao filtro. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="6">Não encontrei nenhum produto que corresponda a "{{input.value}}"</td>
+        </tr>
+      </table>
+    </div>
+ 
+  </div>
+  s

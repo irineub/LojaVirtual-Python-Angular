@@ -1,0 +1,43 @@
+<mat-drawer-container>
+  <mat-drawer class="sidenav-container" mode="side" opened>
+    <div class="search">
+      <input
+        class="roboto-medium"
+        aria-label="Pesquisar"
+        placeholder="Pesquisar produto"
+        [(ngModel)]="searchTerm"
+        (input)="onSearchChange()"
+      />
+      <p class="lupa material-icons" (click)="onSearchChange()">search</p>
+    </div>
+    <div class="categories">
+      <span class="roboto-black">Categorias</span>
+      <div class="options">
+        <button (click)="obterProdutosDisponiveis()">Todos os Produtos</button>
+        <button  *ngFor="let categoria of categorias" (click)="searchByCategory(categoria.categoryName)">{{categoria.categoryName}}</button>
+      </div>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content class="home-container">
+    <div class="card-container">
+      <mat-card class="mat-card" *ngFor="let produto of filteredProdutos">
+        <mat-card-header>
+          <div class="image-container">
+            <img mat-card-image src="{{ produto.productImageUrl }}" alt="" />
+          </div>
+        </mat-card-header>
+        <mat-card-footer>
+          <mat-card-title class="card-title">{{ produto.productName }}</mat-card-title>
+          <div class="card-desc">
+            <p class="roboto-light">{{ produto.productDesc }}</p>
+          </div>
+          <mat-card-subtitle class="card-price">{{ formatPrice(produto.productPrice) }}</mat-card-subtitle>
+          <mat-card-subtitle class="card-stock roboto-light">Em Estoque: {{ produto.productAmount}}</mat-card-subtitle>
+        </mat-card-footer>
+        <mat-card-actions class="actions">
+          <button routerLink="/buy/{{produto.productId}}"><i class="material-icons">shopping_cart</i></button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

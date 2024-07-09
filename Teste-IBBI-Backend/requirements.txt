@@ -1,0 +1,15 @@
+fastapi==0.111.0
+uvicorn==0.30.1
+pydantic==2.8.0
+requests==2.32.3
+SQLAlchemy==2.0.31
+psycopg2==2.9.9
+python-jose==3.3.0
+passlib==1.7.4
+bcrypt==4.0.1
+
+#TESTES
+pytest==8.2.2
+
+#FERRAMENTAS
+alembic==1.13.2
