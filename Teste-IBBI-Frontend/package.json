@@ -23,6 +23,7 @@
     "@ng-icons/core": "^28.1.0",
     "@ng-icons/ionicons": "^28.1.0",
     "@ng-icons/phosphor-icons": "^28.1.0",
+    "@swimlane/ngx-charts": "^20.5.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

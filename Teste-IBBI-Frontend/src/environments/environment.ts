@@ -1,3 +1,3 @@
 export const environment = {
-    api:'',
+    api:'0.0.0.0:80',
 };

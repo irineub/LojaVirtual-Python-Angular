@@ -27,6 +27,16 @@ services:
     networks:
       - teste-ibbi-network
 
+  # frontend:
+  #   build:
+  #     context: ./Teste-IBBI-Frontend
+  #     dockerfile: dockerfile
+  #   container_name: teste-frontend-ibbi
+  #   ports:
+  #     - "8080:80"
+  #   networks:
+  #     - teste-ibbi-network
+
 volumes:
   pgdata:
 
