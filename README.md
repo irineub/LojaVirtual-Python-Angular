@@ -44,7 +44,9 @@
   - Telas Cadastro de Usuario e Login (O usuario cadastrado é um cliente)
   - Tela Inicial Home (Onde o usuario cliente pode ver os produtos para comprar)
   ## Pagina do Vendedor(Somente o cargo Vendedor e Admin tem acesso)
-    - Vendedor pode ver os produtos que ele cadastrou, editar, excluir, ver o estoque, cadastrar um novo produto.
+    - Vendedor pode
+    - ver os produtos que ele cadastrou bem como suas respectivas quantidades em estoque e o nivel de estoque(Baixo, Em Alerta, Bom)
+    - editar, excluir e cadastrar um novo produto alem tambem de poder cadastrar e excluir categorias de produtos.
   ## Paginas de administrador(Somente usuario com o cargo admin tem acesso)
      - Dashboard (Historico de ultimas vendas, grafico de barra com produtos mais vendidos e grafico donut com as categorias mais vendidas)
      - Gerenciamento de Usuarios(administrador pode gerenciar os usuarios cadastrados, pesquisar usuario, editar(cargo e nome de usuario), e apagar usuarios )
