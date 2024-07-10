@@ -23,7 +23,7 @@
 ## Aplicação Desenvolvida por Irineu Brito usando Angular para o frontend e Python para o backend
 - Rodando em docker
 ### Backend
-- Feito em python
+- Feito em python com FastAPI
 - Usado Alembic para fazer as migrações, criar tabelas no banco.
 - Feito alguns testes
 - Banco de dados Postgres
