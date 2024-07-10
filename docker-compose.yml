@@ -33,7 +33,7 @@ services:
       dockerfile: dockerfile
     container_name: teste-frontend-ibbi
     ports:
-      - "8080:8080"
+      - "4200:4200"
     networks:
       - teste-ibbi-network
 

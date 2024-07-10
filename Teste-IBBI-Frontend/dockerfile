@@ -1,4 +1,4 @@
-FROM node:21 as builder
+FROM node:lts AS builder
 
 WORKDIR /app/front
 
@@ -6,8 +6,7 @@ COPY . .
 
 RUN npm install
 
-RUN npm install @angular/cli -g
+RUN npm install -g @angular/cli
+EXPOSE 4200
 
-EXPOSE 8080
-CMD ["ng""serve"]
-
+CMD ["ng", "serve", "--host", "0.0.0.0", "--port", "4200"]
