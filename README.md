@@ -27,11 +27,11 @@
 - Usado Alembic para fazer as migrações, criar tabelas no banco.
 - Feito alguns testes
 - Banco de dados Postgres
-- SqlAlchemy como ORM para comunicação com o database
+- SqlAlchemy como ORM para comunicação com o banco
 - Autenticação dos endpoints utilizando JWT
 
 ### Frontend
--Autenticação dos endpoints utilizando JWT
+- Autenticação dos endpoints utilizando JWT
 - feito em Angular versão 18
 - utilizado angular material
 - utilizado bibliotecas exibir graficos
