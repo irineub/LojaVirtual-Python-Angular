@@ -4,7 +4,9 @@
   width: 100vh;
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
     0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-margin-left: 50vh;
+  margin-left: 50vh;
+  height: 69vh;
+
 & input{
         padding: 0.5rem;
         font-size: 1.5rem;
@@ -18,11 +20,11 @@ margin-left: 50vh;
           outline: 0;
         }}
 }
-.voltar{
+button, .voltar{
   border-radius: 16px;
   padding: 0 1rem;
+  margin-top: 0.5rem;
   height: 1.5rem;
-  margin-left: 2rem;
   opacity: 0.7;
   background: var(--primary-color);
   color: var(--white);
@@ -38,8 +40,11 @@ margin-left: 50vh;
 
 .left {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   padding: 1rem;
+  width: 50vh;
+  gap: 0.5rem;
   & input{
     font-size: 1rem;
 
@@ -62,6 +67,8 @@ margin-left: 50vh;
 }
 .pageContainer {
   width: 90%;
+  height: 70vh;
+  margin-top: 1rem;
   padding: 1rem;
   display: flex;
   text-align: center;

@@ -3,6 +3,23 @@
     width: 20vh;
     padding: 1rem;
     background: #F0F8FF;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    & button{
+        border-radius: 16px;
+        opacity: 0.8;
+        padding: 0.5rem 1rem;
+        background: var(--primary-color);
+        color: var(--white);
+        transition: 0.3s all;
+
+        &:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+    
 }
 .pageContainer{
     display: flex;

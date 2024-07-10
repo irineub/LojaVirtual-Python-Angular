@@ -17,7 +17,7 @@ services:
     build:
       context: ./Teste-IBBI-Backend
       dockerfile: Dockerfile
-    container_name: teste-api-ibbi
+    container_name: teste-backend-ibbi
     environment:
       SQLALCHEMY_DATABASE_URL: postgresql://postgres:Irineu09@postgres/postgres
     ports:
@@ -27,15 +27,15 @@ services:
     networks:
       - teste-ibbi-network
 
-  # frontend:
-  #   build:
-  #     context: ./Teste-IBBI-Frontend
-  #     dockerfile: dockerfile
-  #   container_name: teste-frontend-ibbi
-  #   ports:
-  #     - "8080:80"
-  #   networks:
-  #     - teste-ibbi-network
+  frontend:
+    build:
+      context: ./Teste-IBBI-Frontend
+      dockerfile: dockerfile
+    container_name: teste-frontend-ibbi
+    ports:
+      - "8080:8080"
+    networks:
+      - teste-ibbi-network
 
 volumes:
   pgdata:

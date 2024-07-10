@@ -72,7 +72,7 @@
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef>Ações </th>
           <td mat-cell *matCellDef="let element"> 
-            <span class="material-icons">edit</span>
+            <button routerLink="editarProduto/{{element.productId}}" class="material-icons">edit</button>
             <button (click)="apagarProduto(element.productId)" class="material-icons">delete</button>
         </td>
         </ng-container>

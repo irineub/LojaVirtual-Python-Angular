@@ -50,12 +50,12 @@ export const routes: Routes = [
         component: ProductUpdateComponent,
         canActivate: [VendedorAuthGuard],
       },
+      {
+        path: 'vendedor/criarProduto/novaCategoria',
+        component: CategoryCreateComponent,
+        canActivate: [VendedorAuthGuard],
+      },
     ],
-  },
-  {
-    path: 'vendedor/criarProduto/novaCategoria',
-    component: CategoryCreateComponent,
-    canActivate: [VendedorAuthGuard],
   },
   {
     path:'admin',

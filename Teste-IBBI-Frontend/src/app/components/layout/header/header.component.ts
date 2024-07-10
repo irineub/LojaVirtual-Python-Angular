@@ -4,13 +4,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../../shared/services/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
-  imports: [MatMenuModule, MatIconModule, MatButtonModule, RouterModule],
+  imports: [MatMenuModule, MatIconModule, MatButtonModule, RouterModule, CommonModule],
 })
 export class HeaderComponent implements OnInit {
    userData = {

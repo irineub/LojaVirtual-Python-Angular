@@ -1,73 +1,62 @@
 <div class="dashboard-container">
-    <mat-grid-list cols="3" rowHeight="auto" gutterSize="20px">
-      <!-- Card de Histórico de Vendas -->
-      <mat-grid-tile>
-        <div>
-          <mat-card>
-            <mat-card-header>
-              <mat-card-title>Histórico de Vendas</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <mat-list>
-                <mat-list-item *ngFor="let sale of sales; let i = index">
-                  <h3 mat-line>{{ sale.date | date : "dd/MM/yyyy HH:mm" }}</h3>
-                  <p mat-line>{{ sale.userName }}</p>
-                  <p mat-line>Quantidade vendida: {{ sale.quantity }}</p>
-                </mat-list-item>
-              </mat-list>
-            </mat-card-content>
-          </mat-card>
+  <div class="top">
+    <div class="historico">
+      <span sty>Historico de Vendas</span>
+      <div class="cardH" *ngFor="let venda of history">
+        <div class="minicard">
+          <span>Data:</span>
+          <p>{{ formatSoldTime(venda.soldTime, "date") }}</p>
         </div>
-      </mat-grid-tile>
-  
-      <!-- Card de Venda por Categoria -->
-      <mat-grid-tile>
-        <div>
-          <mat-card>
-            <mat-card-header>
-              <mat-card-title>Venda por Categoria</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <ngx-charts-pie-chart
-                [results]="categoryData"
-                [view]="[400, 300]"
-                [legend]="true"
-                [legendPosition]="legendPosition"
-                ></ngx-charts-pie-chart>
-            </mat-card-content>
-          </mat-card>
+        <div class="minicard">
+          <span>Horario:</span>
+          <p>{{ formatSoldTime(venda.soldTime, "time") }}</p>
         </div>
-      </mat-grid-tile>
-  
-      <!-- Card de Venda por Produto -->
-      <mat-grid-tile>
-        <div>
-          <mat-card>
-            <mat-card-header>
-              <mat-card-title>Top 10 Produtos Mais Vendidos</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <mat-table [dataSource]="topProducts">
-                <ng-container matColumnDef="rank">
-                  <mat-header-cell>Rank</mat-header-cell>
-                  <mat-cell *matCellDef="let i = index">{{ getRank(i) }}</mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="productName">
-                  <mat-header-cell>Produto</mat-header-cell>
-                  <mat-cell *matCellDef="let product">{{ product.name }}</mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="quantitySold">
-                  <mat-header-cell>Quantidade Vendida</mat-header-cell>
-                  <mat-cell *matCellDef="let product">{{ product.quantity }}</mat-cell>
-                </ng-container>
-  
-                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-              </mat-table>
-            </mat-card-content>
-          </mat-card>
+        <div class="minicard">
+          <span>Produto:</span>
+          <p>{{ venda.productName }}</p>
         </div>
-      </mat-grid-tile>
-    </mat-grid-list>
+        <div class="minicard">
+          <span>Cliente:</span>
+          <p>{{ venda.clientName }}</p>
+        </div>
+        <div class="minicard">
+          <span>Vendedor:</span>
+          <p>{{ venda.vendorName }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="porCategoria">
+      <span>Vendas por Categorias</span>
+      <div class="grafico">
+
+        <ngx-charts-pie-chart
+          [view]="[600,200]"
+          [results]="categoriasData"
+          [doughnut]="true"
+          [explodeSlices]="true"
+          [gradient]="true"
+          [legend]="true"
+          [legendTitle]="'Categoria'"
+        >
+        </ngx-charts-pie-chart>
+      </div>
+    </div>
+
+    
   </div>
-  
+  <div class="bottom">
+    <span>Produtos Mais Vendidos</span>
+    <div class="grafico">
+      <ngx-charts-bar-vertical
+        [view]="[800,200]"
+        [results]="produtosData"
+        [legend]="true"
+        [legendTitle]="'Produto'"
+        [roundEdges]="true"
+
+      >
+      </ngx-charts-bar-vertical>
+    </div>
+    </div>
+</div>

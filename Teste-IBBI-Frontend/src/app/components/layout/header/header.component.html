@@ -1,36 +1,45 @@
 <div class="header-container">
-  <span class="logo"
-    ><h1 class="bebas-neue">DESAFIO TÉCNICO</h1>
-    <span class="logoImg"> <img src="{{ logoSrc }}" alt="" /></span>
+  <span class="logo">
+    <h1 class="bebas-neue">DESAFIO TÉCNICO</h1>
+    <span class="logoImg">
+      <img src="{{ logoSrc }}" alt="" />
+    </span>
   </span>
-  <div class="user">
-    <span> <i class="material-icons">person</i>{{userData.username}} </span>
 
-    <button
-      mat-icon-button
-      [matMenuTriggerFor]="menu"
-      aria-label="Example icon-button with a menu"
-    >
+  <div class="user">
+    <span>
+      <i class="material-icons">person</i>{{ userData.username }}
+    </span>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
       <mat-icon>menu</mat-icon>
     </button>
+
     <mat-menu #menu="matMenu">
       <div class="menu-header">
-        <span class="roboto-medium">{{userData.role}}</span>
+        <span class="roboto-medium">{{ userData.role }}</span>
         <span class="roboto-bold"> Seja bem vindo! </span>
       </div>
+
+      <!-- Botão para a página Home -->
       <button mat-menu-item routerLink="/home">
         <mat-icon>home</mat-icon>
         <span>Home</span>
       </button>
-      <button mat-menu-item routerLink="/admin/dashboard">
+
+      <!-- Botão para o Dashboard de Administrador (visível apenas para o admin) -->
+      <button mat-menu-item *ngIf="userData.role === 'admin'" routerLink="/admin/dashboard">
         <mat-icon>dashboard</mat-icon>
         <span>Dashboard de Administrador</span>
       </button>
-      <button mat-menu-item routerLink="/vendedor">
+
+      <!-- Botão para a página de Vendas (visível para vendedor e admin) -->
+      <button mat-menu-item *ngIf="userData.role === 'vendedor' || userData.role === 'admin'" routerLink="/vendedor">
         <mat-icon>store</mat-icon>
-        <span>Pagina do Vendedor</span>
+        <span>Página do Vendedor</span>
       </button>
 
+      <!-- Botão para Sair -->
       <button mat-menu-item (click)="onLogout()">
         <mat-icon>logout</mat-icon>
         <span>Sair</span>
