@@ -32,12 +32,22 @@
 
 ### Frontend
 - Autenticação dos endpoints utilizando JWT
+- Proteção e divisão de rotas por token e cargo (Cliente, Vendedor, Admin)
 - feito em Angular versão 18
 - utilizado angular material
 - utilizado bibliotecas exibir graficos
 - utilizado api publica para cotação do dolar
 - utilizado pre processador de CSS SASS
 
+  ### Funcionalidades - Você pode ver todas em pratica no video acima
+  Telas do Frontend
+  - Telas Cadastro de Usuario e Login (O usuario cadastrado é um cliente)
+  - Tela Inicial Home (Onde o usuario cliente pode ver os produtos para comprar)
+  ## Pagina do Vendedor(Somente o cargo Vendedor e Admin tem acesso)
+    - Vendedor pode ver os produtos que ele cadastrou, editar, excluir, ver o estoque, cadastrar um novo produto.
+  ## Paginas de administrador(Somente usuario com o cargo admin tem acesso)
+     - Dashboard (Historico de ultimas vendas, grafico de barra com produtos mais vendidos e grafico donut com as categorias mais vendidas)
+     - Gerenciamento de Usuarios(administrador pode gerenciar os usuarios cadastrados, pesquisar usuario, editar(cargo e nome de usuario), e apagar usuarios )
 
 
 
