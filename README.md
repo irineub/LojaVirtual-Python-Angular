@@ -14,7 +14,7 @@
 4. Acesse a aplicação:
    
     - O Frontend que eu desenvolvi usando angular vai estar rodando em: `http://localhost:4200`
-    - O Backend desenvolvido com python vai está rodando em : `http://localhost:80`
+    - O Backend desenvolvido com python vai está rodando em : `http://localhost:80/docs` acesse para ver a documentação gerada pelo FastAPI
       
 ## Demonstração
 - Clique para assistir um video de demonstração:
